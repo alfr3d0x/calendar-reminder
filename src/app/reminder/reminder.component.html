@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Create Reminder</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <span>Description:</span><input matInput [(ngModel)]="reminder.description">
+  </mat-form-field>
+  <mat-form-field>
+    <span>City:</span><input matInput [(ngModel)]="reminder.city">
+  </mat-form-field>
+  <mat-form-field>
+    <span>Time:</span><input matInput [(ngModel)]="reminder.time" [ngxTimepicker]="default" readonly>
+    <ngx-material-timepicker #default></ngx-material-timepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <span>Choose Color:</span><input matInput [(colorPicker)]="reminder.background" [style.background]="reminder.background" [cpOKButton]="true"/>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">
+      <span *ngIf="!isEdit"> Cancel </span>
+      <span *ngIf="isEdit"> Delete </span>
+  </button>
+  <button mat-button [mat-dialog-close]="reminder" cdkFocusInitial>Ok</button>
+</div>

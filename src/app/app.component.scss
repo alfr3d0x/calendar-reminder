@@ -1,0 +1,107 @@
+
+app-root {
+
+  #main-container {
+    width: 800px;
+  }
+
+  #calendar-container {
+    margin-bottom: 25px;
+  }
+
+  .month-name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .flex-container {
+    display: flex;
+  }
+
+  .flex-center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-column {
+    flex-direction: column;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .calendar-day {
+    width: 110px;
+    height: 110px;
+    border: .5px solid #738083;
+  }
+
+  .day-date {
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .weekday {
+    width: 110px;
+    background: rgb(36, 89, 189);
+    border: .5px solid rgb(36, 89, 189);
+    font-size: 12px;
+    color: azure;
+    font-weight: bold;
+
+  }
+
+  .inactiveDay {
+    color: rgb(139, 139, 139) !important;
+  }
+
+  .weekend {
+    background: lightgrey;
+    color: rgb(17, 62, 209);
+  }
+
+  .calendar-navigator {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    margin-bottom: 20px;
+  }
+
+  .field {
+    margin-bottom: 5px;
+  }
+
+  .plus-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: lightblue;
+    cursor: pointer;
+  }
+
+  .plus-icon {
+    font-size: 40px;
+    margin-bottom: 5px;
+    font-weight: 300;
+  }
+
+  .reminder {
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+  }
+
+  .reminder:hover {
+    cursor: pointer;
+  }
+
+  .reminders-container {
+    margin-left: 75px;
+    margin-top: 5px;
+  }
+}
