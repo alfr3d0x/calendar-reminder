@@ -142,7 +142,7 @@ export class AppComponent {
         } else {
           if(this.validateReminder(rem)) {
             if(rem.city != reminder.city) {
-              this.getForecast(reminder);
+              this.getForecast(rem);
             }
             day.reminders[index] = rem;
           } else {
