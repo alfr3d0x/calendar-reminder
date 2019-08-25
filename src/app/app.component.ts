@@ -114,7 +114,7 @@ export class AppComponent {
             }
             day.reminders.push(reminder);
           } else {
-            alert('The reminder must have a name and the name must have 35 characters at the most also must have a city, and time');
+            this.displayValidationError();
           }  
         }
       });
@@ -146,7 +146,7 @@ export class AppComponent {
             }
             day.reminders[index] = rem;
           } else {
-            alert('The reminder must have a description and the description must have 35 characters at the most');
+            this.displayValidationError();
           }
         }
       }
@@ -172,5 +172,9 @@ export class AppComponent {
 
   public validateReminder(reminder) {
     return !!(reminder && reminder.description && reminder.description.length <= 30 && reminder.city && reminder.time);
+  }
+
+  public displayValidationError() {
+    alert('The reminder must have a name and the name must have 30 characters at the most also must have a city, and time');
   }
 }
