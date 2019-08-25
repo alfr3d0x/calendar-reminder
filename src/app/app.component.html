@@ -16,7 +16,7 @@
               {{day?.dayDate?.date()}}
             </div>
             <div class='reminders-container flex-container flex-column'>
-              <div class='reminder' *ngFor="let reminder of day.reminders" [matTooltip]="getReminderText(reminder)" matTooltipClass="custom-tooltip"
+              <div class='reminder' *ngFor="let reminder of day.reminders | orderBy: reminder?.time" [matTooltip]="getReminderText(reminder)" matTooltipClass="custom-tooltip"
               [ngStyle]="{'background': reminder.background}" (click)="editReminder(day, reminder); $event.stopPropagation()"></div>
             </div>
           </div>
