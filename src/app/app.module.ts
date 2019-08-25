@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTooltipModule, MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, } from '@angular/material';
+import { MatTooltipModule, MatDialogModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule } from '@angular/material';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { OrderModule } from 'ngx-order-pipe';
@@ -41,6 +41,7 @@ import { ApiService } from './api.service'
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
+    OrderModule
   ],
   providers: [ ApiService ],
   bootstrap: [AppComponent],

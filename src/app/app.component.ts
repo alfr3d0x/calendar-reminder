@@ -108,13 +108,13 @@ export class AppComponent {
       dialogRef.afterClosed().subscribe(reminder => {
         console.log('The dialog was closed');
         if(reminder){
-          if(reminder.description && reminder.description.length <= 30) {
+          if(this.validateReminder(reminder)) {
             if(reminder.city) {
               this.getForecast(reminder);
             }
             day.reminders.push(reminder);
           } else {
-            alert('The reminder must have a description and the description must have 35 characters at the most');
+            alert('The reminder must have a name and the name must have 35 characters at the most also must have a city, and time');
           }  
         }
       });
@@ -122,10 +122,11 @@ export class AppComponent {
   }
 
   public editReminder(day: any, reminder: any) {
+    let reminderInstance = Object.assign({}, reminder);
     let dialogRef = this.dialog.open(ReminderComponent, {
       width: '250px',
       data: {
-        reminder: reminder,
+        reminder: reminderInstance,
         isEdit: true
       }
     });
@@ -133,17 +134,17 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe(rem => {
       console.log('The dialog was closed');
       if(rem){
+        let index = day.reminders.indexOf(reminder);
         if(rem.delete){
-          let index = day.reminders.indexOf(reminder);
           if(index != -1) {
             day.reminders.splice(index, 1);
           }
         } else {
-          if(rem.description && rem.description.length < 30) {
-            reminder = rem
-            if(reminder.city) {
+          if(this.validateReminder(rem)) {
+            if(rem.city != reminder.city) {
               this.getForecast(reminder);
             }
+            day.reminders[index] = rem;
           } else {
             alert('The reminder must have a description and the description must have 35 characters at the most');
           }
@@ -164,7 +165,12 @@ export class AppComponent {
       },
       (error: any) => {
         console.log(error);
+        alert('The city you have chosen does not have a weather forecast available.')
       }
     )
+  }
+
+  public validateReminder(reminder) {
+    return !!(reminder && reminder.description && reminder.description.length <= 30 && reminder.city && reminder.time);
   }
 }
